@@ -23,17 +23,7 @@ $ python -m pip install -r ./requirements.txt		   # install packages
 1. Goto the project folder `sadponzi/`.  
 2. Setup a dictionary to save the results. `mkdir ./eval_results`
 3. Run RQ1. `python ./effectiveness.py <path_to_RQ1_benchmark> <path_to_results>`. For example, `python ./effectiveness.py /RQ1/ponzi ./eval_results`. Download the RQ1 benchmark from [here](https://github.com/Kenun99/SADPonzi/tree/main/dataset/rq1).
-4. Verify the results.
-
-   ```
-   -------------------- results --------------------
-   #Handover schemes 0
-   #Chain schemes 2
-   #Tree schemes 0
-   -> Total = 2
-   ```
-
-   If you find False Negatives, please set a larger timeout and run SADPonzi again.
+4. Verify the results. If you find False Negatives, please set a larger timeout and run SADPonzi again.
 
 ## Academia
 
