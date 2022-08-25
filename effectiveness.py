@@ -17,9 +17,9 @@ if len(sys.argv) != 3:
 
 reports_path_base = sys.argv[2] #'./eval_results/effectiveness/'
 
-for file in os.listdir(sys.argv[1])[:2]:
+for file in os.listdir(sys.argv[1]):
     sample_path = os.path.join(sys.argv[1], file)
-    cmd = 'python3 sadponzi.py -i {} -o {}'.format(sample_path, reports_path_base+'/'+file, reports_path_base+file)
+    cmd = 'python3 sadponzi.py -i {} -o {}'.format(sample_path, reports_path_base+'/'+file)
     process(cmd)
 
 # collect results:
@@ -27,7 +27,7 @@ ponzi_cnt = 0
 profiles = [0,0,0]
 
 for report_name in os.listdir(reports_path_base):
-    with open(reports_path_base + report_name, 'r') as f:
+    with open(reports_path_base + '/' + report_name, 'r') as f:
         lineOne = f.readline()
         if lineOne.startswith("Found:"):
             ponzi_cnt += 1
