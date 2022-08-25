@@ -1,6 +1,6 @@
 # SADPonzi
 
-SADPonzi is a detection for Ponzi scheme smart contracts (ponzitract) base on symbolic execution technology. We implement it atop [teEther](https://github.com/nescio007/teether):
+SADPonzi is a detector for Ponzi scheme smart contracts (ponzitract) base on symbolic execution technology. We implement it atop [teEther](https://github.com/nescio007/teether).
 
 ## Benchmark
 
@@ -10,20 +10,19 @@ SADPonzi is a detection for Ponzi scheme smart contracts (ponzitract) base on sy
 
 ## Setup
 
-SADPonzi is tested well in a Ubuntu18.04 server witg Python 3.8.10. Check the environment requirements of [teEther](https://github.com/nescio007/teether).
+SADPonzi is tested on an Ubuntu 18.04 server with `Python 3.8.10`. Check the environment requirements of [teEther](https://github.com/nescio007/teether).
 
 ```bash
-$ git https://github.com/Kenun99/tse_sadponzi.git sadponzi && cd sadponzi
+$ git clone https://github.com/Kenun99/tse_sadponzi.git sadponzi && cd sadponzi
 $ python3 -m venv ./venv && source ./venv/bin/activate # activate your virtual environment
-$ python -m pip install -r ./requirements.txt				 # install packages
+$ python -m pip install -r ./requirements.txt		   # install packages
 ```
 
 ## Run the examples
 
-1. Enter the project folder `sadponzi/`.  
+1. Goto the project folder `sadponzi/`.  
 2. Setup a dictionary to save the results. `mkdir ./eval_results`
 3. Run RQ1. `python ./effectiveness.py <path_to_RQ1_benchmark> <path_to_results>`. For example, `python ./effectiveness.py /RQ1/ponzi ./eval_results`. Download the RQ1 benchmark from [here](https://github.com/Kenun99/SADPonzi/tree/main/dataset/rq1).
-
 4. Verify the results.
 
    ```
@@ -34,7 +33,7 @@ $ python -m pip install -r ./requirements.txt				 # install packages
    -> Total = 2
    ```
 
-   If you find False Negatives, please set a larger timeout for SADPonzi.
+   If you find False Negatives, please set a larger timeout and run SADPonzi again.
 
 ## Academia
 
