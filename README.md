@@ -10,7 +10,7 @@ SADPonzi is a detector for Ponzi scheme smart contracts (ponzitract) base on sym
 
 ## Setup
 
-SADPonzi is tested on an Ubuntu 18.04 server with `Python 3.8.10`. Check the environment requirements of [teEther](https://github.com/nescio007/teether).
+SADPonzi was tested on an Ubuntu 18.04 server with `Python 3.8.10`. Check the environment requirements of [teEther](https://github.com/nescio007/teether).
 
 ```bash
 $ git clone https://github.com/Kenun99/tse_sadponzi.git sadponzi && cd sadponzi
