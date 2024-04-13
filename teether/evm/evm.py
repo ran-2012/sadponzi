@@ -48,6 +48,9 @@ def run(program, state=None, code=None, ctx=None, check_initialized=False, trace
         if 0x60 <= opcode <= 0x7f:
             stk.append(int.from_bytes(ins.arg, byteorder='big'))
             state.pc += opcode - 0x5f  # Move 1 byte forward for 0x60, up to 32 bytes for 0x7f
+        elif opcode == 0x59:
+            stk.append(0)
+            state.pc += 1
         # Arithmetic
         elif opcode < 0x10:
             if op == 'STOP':
@@ -199,7 +202,7 @@ def run(program, state=None, code=None, ctx=None, check_initialized=False, trace
             elif op == 'GASLIMIT':
                 stk.append(ctx.gaslimit)
         # VM state manipulations
-        elif opcode < 0x60:
+        elif opcode < 0x59:
             if op == 'POP':
                 stk.pop()
             elif op == 'MLOAD':
@@ -363,6 +366,9 @@ def run_symbolic(program, path, code=None, state=None, ctx=None, inclusive=False
         if 0x60 <= opcode <= 0x7f:
             stk.append(int.from_bytes(ins.arg, byteorder='big'))
             state.pc += opcode - 0x5f  # Move 1 byte forward for 0x60, up to 32 bytes for 0x7f
+        elif opcode == 0x59:
+            stk.append(0)
+            state.pc += 1
         # Arithmetic
         elif opcode < 0x10:
             if op == 'STOP':
@@ -667,7 +673,7 @@ def run_symbolic(program, path, code=None, state=None, ctx=None, inclusive=False
             elif op == 'GASLIMIT':
                 stk.append(ctx_or_symbolic('GASLIMIT', ctx, xid))
         # VM state manipulations
-        elif opcode < 0x60:
+        elif opcode < 0x59:
             if op == 'POP':
                 stk.pop()
             elif op == 'MLOAD':

@@ -135,7 +135,7 @@ class BB(object):
         if self.indirect_jump and not self.jump_resolved:
             bs = backward_slice(self.ins[-1], [0], must_visits=self.must_visit)
             for b in bs:
-                if 0x60 <= b[-1].op <= 0x7f:
+                if 0x59 <= b[-1].op <= 0x7f:
                     succ_addr = int.from_bytes(b[-1].arg, byteorder='big')
                 else:
                     p = slice_to_program(b)
