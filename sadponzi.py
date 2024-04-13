@@ -1,9 +1,12 @@
-#!/usr/bin/env python3
+
 from ast import arg
 import json
 import logging
-import resource
+# import resource
 import sys
+
+print(sys.executable)
+
 import os
 import timeout_decorator
 import traceback
@@ -26,8 +29,9 @@ def hex_encode(d):
 def main(code_path, target_addr, shellcode_addr, amount, savefile=None, initial_storage_file=None, initial_balance=None,
          flags=None, looplimit=3, output_path=None):
 
-    # read hexdata and generate CFG
 
+    # read hexdata and generate CFG
+    print("code_path: "  + code_path)
     with open(code_path) as infile:
         inbuffer = infile.read().rstrip()
     code = bytes.fromhex(inbuffer)
@@ -62,12 +66,12 @@ def main(code_path, target_addr, shellcode_addr, amount, savefile=None, initial_
 
 if __name__ == '__main__':
     # limit memory to 32GB
-    mem_limit = 32 * 1024 * 1024 * 1024
-    try:
-        rsrc = resource.RLIMIT_VMEM
-    except:
-        rsrc = resource.RLIMIT_AS
-    resource.setrlimit(rsrc, (mem_limit, mem_limit))
+    # mem_limit = 32 * 1024 * 1024 * 1024
+    # try:
+    #     rsrc = resource.RLIMIT_VMEM
+    # except:
+    #     rsrc = resource.RLIMIT_AS
+    # resource.setrlimit(rsrc, (mem_limit, mem_limit))
 
     config = {
         'target-address'   : "0x1234",

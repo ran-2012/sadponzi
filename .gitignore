@@ -1,7 +1,10 @@
-/eval_results
-
-/venv
-
+eval_results
+venv
 *.log
+bak
 
-/bak
+rq1
+results
+
+.venv
+**/__pycache__

@@ -14,12 +14,11 @@ if len(sys.argv) != 3:
     print('Usage: %s [flags] <path_to_dataset> <path_to_results>' % sys.argv[0], file=sys.stderr)
     exit(0)
 
-
 reports_path_base = sys.argv[2] #'./eval_results/effectiveness/'
 
 for file in os.listdir(sys.argv[1]):
     sample_path = os.path.join(sys.argv[1], file)
-    cmd = 'python3 sadponzi.py -i {} -o {}'.format(sample_path, reports_path_base+'/'+file)
+    cmd = sys.executable + ' sadponzi.py -i {} -o {}'.format(sample_path, reports_path_base+'/'+file)
     process(cmd)
 
 # collect results:
