@@ -4,7 +4,10 @@ venv
 bak
 
 rq1
-results
+contracts/*.bin
+_contracts/*.bin
+results/*.bin
+logs
 
 .venv
 **/__pycache__
